@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selamat Natal! 🎄</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Arial", sans-serif;
+        background: #1a1a1d;
+        color: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 100vh;
+        overflow: hidden;
+        background-image: linear-gradient(to bottom, #0d1b2a, #1f2b44);
+        animation: gradientBG 10s ease infinite;
+      }
+
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      h1 {
+        font-size: 4rem;
+        font-weight: bold;
+        text-shadow: 2px 2px 10px #f39c12;
+        color: #d6f7f2;
+        margin-top: 30px;
+      }
+
+      .container {
+        position: relative;
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .pohon {
+        position: absolute;
+        bottom: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 1;
+      }
+
+      .pohon .layer {
+        width: 0;
+        height: 0;
+        border-left: 80px solid transparent;
+        border-right: 80px solid transparent;
+        margin: 10px auto;
+        display: block;
+      }
+
+      .pohon .layer-1 {
+        border-bottom: 100px solid #2ecc71;
+      }
+
+      .pohon .layer-2 {
+        border-bottom: 90px solid #27ae60;
+      }
+
+      .pohon .layer-3 {
+        border-bottom: 80px solid #229954;
+      }
+
+      .pohon .trunk {
+        width: 60px;
+        height: 120px;
+        background-color: #8b4513;
+        margin: 0 auto;
+        border-radius: 5px;
+      }
+
+      .message {
+        background-color: rgba(255, 255, 255, 0.85);
+        width: 80%;
+        max-width: 700px;
+        padding: 30px;
+        border-radius: 20px;
+        margin-top: 30px;
+        font-size: 1.2rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+        display: none;
+        opacity: 0;
+        animation: showMessage 1s forwards;
+        z-index: 2;
+      }
+
+      @keyframes showMessage {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      .cta-button {
+        margin-top: 20px;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        background-color: #e74c3c;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .cta-button:hover {
+        background-color: #c0392b;
+        transform: translateY(-3px);
+      }
+
+      .whatsapp-button {
+        margin-top: 30px;
+        padding: 15px 30px;
+        font-size: 1.2rem;
+        background-color: #25d366;
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .whatsapp-button:hover {
+        background-color: #128c7e;
+        transform: translateY(-3px);
+      }
+
+      .snowflakes {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: -1;
+      }
+
+      .snowflake {
+        position: absolute;
+        background: white;
+        border-radius: 50%;
+        animation: snowfall 8s linear infinite;
+      }
+
+      @keyframes snowfall {
+        0% {
+          top: -10px;
+          left: 0;
+          transform: scale(0.5);
+        }
+        100% {
+          top: 100%;
+          left: 100%;
+          transform: scale(1);
+        }
+      }
+
+      .note {
+        background-color: rgba(255, 255, 255, 0.9);
+        width: 80%;
+        max-width: 700px;
+        padding: 20px;
+        margin-top: 50px;
+        font-size: 1.1rem;
+        color: #333;
+        border-radius: 15px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        position: relative;
+      }
+
+      .note p {
+        margin: 0;
+        padding: 0;
+        animation: typing 5s steps(40) forwards,
+          blinkCaret 0.75s step-end infinite;
+      }
+
+      @keyframes typing {
+        from {
+          width: 0;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      @keyframes blinkCaret {
+        50% {
+          border-color: transparent;
+        }
+      }
+
+      /* Media Queries for Responsiveness */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 3rem;
+        }
+
+        .cta-button,
+        .whatsapp-button {
+          padding: 12px 24px;
+          font-size: 1rem;
+        }
+
+        .note {
+          font-size: 1rem;
+          padding: 15px;
+        }
+
+        .container {
+          margin-top: 15px;
+        }
+
+        .message {
+          padding: 20px;
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 2.5rem;
+        }
+
+        .cta-button,
+        .whatsapp-button {
+          padding: 10px 20px;
+          font-size: 0.9rem;
+        }
+
+        .note {
+          font-size: 0.9rem;
+          padding: 10px;
+        }
+
+        .message {
+          padding: 15px;
+          font-size: 0.9rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <audio id="audio" autoplay muted>
+      <source src="natal_song.mp3" type="audio/mp3" />
+      Browser Anda tidak mendukung elemen audio.
+    </audio>
+    <script>
+      // Pastikan audio dimulai setelah halaman dimuat
+      window.onload = function () {
+        const audio = document.getElementById("audio");
+        audio.muted = false; // Hapus mute setelah halaman dimuat
+        audio.play(); // Mulai putar audio
+      };
+    </script>
+    <div class="container">
+      <!-- Pohon Natal -->
+      <div class="pohon">
+        <div class="layer layer-1"></div>
+        <div class="layer layer-2"></div>
+        <div class="layer layer-3"></div>
+        <div class="trunk"></div>
+      </div>
+
+      <!-- Pesan Natal -->
+      <div class="message" id="messageBox">
+        <p>
+          Selamat Natal! Semoga cinta kasih Natal membawa kebahagiaan yang luar
+          biasa bagi hidupmu. Terima kasih telah menjadi bagian penting dalam
+          hidupku. Mari berbagi kebahagiaan bersama, dan semoga harapanmu
+          menjadi kenyataan. 🌟
+        </p>
+      </div>
+
+      <!-- Tombol untuk reveal pesan -->
+      <button class="cta-button" id="showMessageBtn">Baca Pesan Natal</button>
+
+      <!-- WhatsApp Button -->
+      <button
+        class="whatsapp-button"
+        onclick="window.location.href='https://wa.me/+6282229094416'"
+      >
+        Minta Hadiah 🎁
+      </button>
+
+      <!-- Catatan dengan Teks Berjalan -->
+      <div class="note">
+        <p id="noteText"></p>
+      </div>
+
+      <!-- Salju -->
+      <div class="snowflakes" id="snowflakes"></div>
+    </div>
+
+    <script>
+      // Teks Berjalan
+      const noteMessage =
+        "Selamat Natal! Klik tombol button hijau jika mau hadiah🥰😁";
+      let noteIndex = 0;
+      const noteText = document.getElementById("noteText");
+
+      function typeNote() {
+        if (noteIndex < noteMessage.length) {
+          noteText.textContent += noteMessage.charAt(noteIndex);
+          noteIndex++;
+          setTimeout(typeNote, 100);
+        }
+      }
+
+      // Show Message
+      document.getElementById("showMessageBtn").onclick = function () {
+        document.getElementById("messageBox").style.display = "block";
+      };
+
+      // Salju
+      function createSnowflakes() {
+        const snowflakesContainer = document.getElementById("snowflakes");
+        for (let i = 0; i < 100; i++) {
+          const snowflake = document.createElement("div");
+          snowflake.classList.add("snowflake");
+          snowflake.style.width = `${Math.random() * 10 + 5}px`;
+          snowflake.style.height = snowflake.style.width;
+          snowflake.style.left = `${Math.random() * 100}vw`;
+          snowflake.style.animationDuration = `${Math.random() * 5 + 5}s`;
+          snowflake.style.animationDelay = `${Math.random() * 5}s`;
+          snowflakesContainer.appendChild(snowflake);
+        }
+      }
+
+      // Mulai salju dan teks berjalan
+      createSnowflakes();
+      setTimeout(typeNote, 1500);
+    </script>
+  </body>
+</html>
